@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签页列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 300px;
+            padding: 10px;
+            margin: 0;
+        }
+        #search-box {
+            width: calc(100% - 12px);  /* 减去内边距和边框宽度 */
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 12px;
+            outline: none;
+        }
+        #search-box:focus {
+            border-color: #4d90fe;
+            box-shadow: 0 0 2px rgba(77, 144, 254, 0.5);
+        }
+        #tab-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            max-height: 400px;
+            overflow-y: auto;
+            scrollbar-width: none;  /* 用于 Firefox */
+            -ms-overflow-style: none;  /* 用于 Internet Explorer 和 Edge */
+        }
+        #tab-list::-webkit-scrollbar {
+            display: none;  /* 用于 Chrome, Safari 和 Opera */
+        }
+        .domain-group {
+            margin-bottom: 10px;
+        }
+        .domain-group h2 {
+            font-size: 12px;
+            margin: 0 0 5px 0;
+            padding: 5px;
+            color: #888;
+            background-color: transparent;
+            font-weight: normal;
+        }
+        .domain-group ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .tab-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .tab-item:hover {
+            background-color: #e0e0e0;
+        }
+        .tab-favicon {
+            margin-right: 8px;
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+        }
+        .tab-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="search-box" placeholder="搜索标签页...">
+    <div id="tab-list"></div>
+    <script src="tabs.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
